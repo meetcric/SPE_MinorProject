@@ -1,12 +1,19 @@
-name: learn-github-actions
-on: [push]
+name: SPE_MINIPROJECT
+
+on:
+  push:
+    branches: [master]
+
 jobs:
-  check-bats-version:
-    runs-on: ubuntu-latest
+  Build Code:
+    runs-on: ubuntu-latest #configure the job to run on latest version of ubuntu
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v2 # allow to checks out repo and allow to run build and test tools
+      - name: Node Setup
+        uses: actions/setup-node@v1
         with:
-          node-version: "14"
-      - run: npm install -g bats
-      - run: bats -v
+        node-version: "17.0.24"
+      - run: npm ci #similar to npm install except its meant to used in Automated Env
+      - run: npm run build --prod
