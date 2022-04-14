@@ -5,7 +5,7 @@ on:
     branches: [master]
 
 jobs:
-  Build Code:
+  Build_Code:
     runs-on: ubuntu-latest #configure the job to run on latest version of ubuntu
 
     steps:
