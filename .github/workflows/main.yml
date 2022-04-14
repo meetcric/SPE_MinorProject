@@ -12,8 +12,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2 # allow to checks out repo and allow to run build and test tools
       - name: Node Setup
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: "17.0.24"
+          node-version: "17"
       - run: npm ci #similar to npm install except its meant to used in Automated Env
       - run: npm run build --prod
