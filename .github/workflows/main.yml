@@ -33,3 +33,13 @@ jobs:
           tags: meetcric/mini_project
           file: ./Dockerfile
           push: true
+
+  deploy:
+    needs: Docker_BuildPush
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/ansible
+        env:
+          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}

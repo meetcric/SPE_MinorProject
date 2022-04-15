@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - name: stop previous version docker
+      shell: docker stop mini-project
+    - name: remove stopped container
+      shell: docker rm -f mini-project
+    - name: remove docker images
+      shell: docker image rm -f meetcric/mini_project:latest
+
+    - name: create docker image
+      shell: docker run -d -p 80:80 --name mini-project meetcric/mini_project:latest
