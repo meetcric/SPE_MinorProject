@@ -14,7 +14,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and Push
-        uses: actions/checkout@v2
         run: |
           docker image build -t meetcric/mini_project:latest .
           docker push meetcric/mini_project:latest
