@@ -18,3 +18,4 @@ jobs:
         with:
           tags: meetcric/mini_project
           file: ./Dockerfile
+          push: true
