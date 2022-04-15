@@ -19,6 +19,7 @@ jobs:
       - run: npm run build --prod
 
   Docker_BuildPush:
+    needs: Build_Code
     runs-on: ubuntu-latest
     steps:
       - name: Login to Docker
