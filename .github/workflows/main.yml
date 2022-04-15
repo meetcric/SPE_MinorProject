@@ -19,5 +19,3 @@ jobs:
         with:
           context: ./
           file: ./Dockerfile
-          push: true
-          tags: meetcric/mini-project:latest
