@@ -11,6 +11,3 @@ RUN npm install
 # this will generate dist
 RUN npm run build --prod
 
-# stage 2 (Running the app (i.e for production))
-FROM nginx:alpine
-COPY --from=node /app/dist/mini-project /usr/share/nginx/html
