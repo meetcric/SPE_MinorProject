@@ -5,21 +5,7 @@ on:
     branches: [master]
 
 jobs:
-  Build_Code:
-    runs-on: ubuntu-latest #configure the job to run on latest version of ubuntu
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2 # allow to checks out repo and allow to run build and test tools
-      - name: Node Setup
-        uses: actions/setup-node@v3
-        with:
-          node-version: "17"
-      - run: npm ci #similar to npm install except its meant to used in Automated Env
-      - run: npm run build --prod
-
   Docker_BuildPush:
-    needs: Build_Code
     runs-on: ubuntu-latest
     steps:
       - name: Login to Docker
@@ -27,11 +13,3 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build Image and Push to Hub
-        id: docker_build
-        uses: docker/build-push-action@v2
-        with:
-          context: ././
-          # file: ./Dockerfile
-          push: true
-          tags: meetcric/mini-project:latest
