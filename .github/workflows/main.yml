@@ -18,6 +18,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./Dockerfile
+          file: ./dockerfile
           push: true
           tags: meetcric/mini-project:latest
