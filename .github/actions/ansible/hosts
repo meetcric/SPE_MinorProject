@@ -1,7 +1,1 @@
-54.242.222.3
-
-[all:vars]
-ansible_connection=ssh
-ansible_user=ubuntu
-ansible_ssh_user=ubuntu 
-ansible_python_interpreter=/usr/bin/python3.8
+54.159.154.79 ansible_user=ubuntu
