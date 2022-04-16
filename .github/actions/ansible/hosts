@@ -1,5 +1,5 @@
 [aws]
-54.242.222.3
+34.204.67.138
 
 [all:vars]
 ansible_connection=ssh
